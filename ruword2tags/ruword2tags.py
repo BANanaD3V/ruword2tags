@@ -19,6 +19,7 @@ import sys
 import io
 import argparse
 import sqlite3
+import random
 import threading
 import colorama
 
