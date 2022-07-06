@@ -18,6 +18,7 @@ import io
 import argparse
 import sqlite3
 import threading
+import colorama
 
 
 def create_trie_node(char):
@@ -100,7 +101,13 @@ class RuWord2Tags:
                         import gdown
 
                         url = 'https://drive.google.com/uc?id=1xlL8ijnwE6tAPpsil7Q1yWkXY4mn2YCd'
-                        gdown.download(url, self.db_filepath, quiet=False)
+                        string = colorama.Fore.GREEN + '//' +colorama.Fore.RESET + '  Downloading database...  ' + colorama.Fore.GREEN + '//' + colorama.Fore.RESET
+                        for char in string:
+    
+                            sleep(round(random.uniform(0.01, 0.15), 10))
+                            sys.stdout.write(char)
+                            sys.stdout.flush()  
+                        gdown.download(url, self.db_filepath, quiet=True)
         else:
             p = dict_path
             self.db_filepath = os.path.join(os.path.dirname(dict_path), 'ruword2tags.db')
